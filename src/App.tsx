@@ -14,7 +14,7 @@ const PasswordAuth: React.FC<PasswordAuthProps> = ({ onAuthenticate }) => {
     e.preventDefault();
     
     // Check against environment variable (this will be accessed via process.env in a real app)
-    const correctPassword = import.meta.env.VITE_SECRET_PASSWORD;
+    const correctPassword = import.meta.env.VITE_SEV;
     
     if (password === correctPassword) {
       // Store authentication in session storage so it persists through page refreshes
