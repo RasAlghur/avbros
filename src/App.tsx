@@ -14,7 +14,7 @@ const PasswordAuth: React.FC<PasswordAuthProps> = ({ onAuthenticate }) => {
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     
-    // Check against environment variable
+    // Check against environment variables
     const correctPassword = import.meta.env.VITE_SEV;
     
     if (password === correctPassword) {
