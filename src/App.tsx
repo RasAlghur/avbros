@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./App.css"; // Import the CSS file
+// Import the improved CSS
+import "./App.css";
 
 // Password authentication component
 interface PasswordAuthProps {
@@ -13,11 +14,11 @@ const PasswordAuth: React.FC<PasswordAuthProps> = ({ onAuthenticate }) => {
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     
-    // Check against environment variable (this will be accessed via process.env in a real app)
+    // Check against environment variable
     const correctPassword = import.meta.env.VITE_SEV;
     
     if (password === correctPassword) {
-      // Store authentication in session storage so it persists through page refreshes
+      // Store authentication in session storage
       sessionStorage.setItem("isAuthenticated", "true");
       onAuthenticate(true);
       setError("");
@@ -69,7 +70,12 @@ export default function App() {
 
   // Date formatting and manipulation functions
   const formatDate = (date: Date) => {
-    const options = { weekday: "long" as const, year: "numeric" as const, month: "long" as const, day: "numeric" as const };
+    const options: Intl.DateTimeFormatOptions = { 
+      weekday: "long", 
+      year: "numeric", 
+      month: "long", 
+      day: "numeric" 
+    };
     return date.toLocaleDateString('en-US', options);
   };
   
@@ -391,9 +397,9 @@ export default function App() {
             ))}
           </div>
           <div className="legend-info">
-            <p>• Work days are Sundays and Mondays only</p>
-            <p>• The same team works on both Sunday and Monday each week</p>
-            <p>• Teams rotate weekly following a 7-week cycle</p>
+            <p>Work days are Sundays and Mondays only</p>
+            <p>The same team works on both Sunday and Monday each week</p>
+            <p>Teams rotate weekly following a 7-week cycle</p>
           </div>
         </div>
       </div>
