@@ -136,13 +136,38 @@ export default function App() {
   // Starting date (today)
   const today = new Date();
   
+  // Reference date: use a known date with a known rotation to establish the pattern
+  // May 4, 2025 was when rotation index 0 was correct
+  const referenceDate = new Date(2025, 4, 4); // May 4, 2025
+  const referenceRotationIndex = 0; // rotation index on the reference date
+
   // Build schedule for Sundays and Mondays until Jan 4, 2026
   const generateWorkDays = () => {
     const endDate = new Date(2026, 0, 4);
     const workDays = [];
     
+    // Calculate how many weeks have passed since the reference date
+    // This will ensure the rotation is synchronized with actual dates
+    const referenceSunday = startOfWeek(referenceDate);
     let currentWeek = startOfWeek(today);
-    let rotationIndex = 0;
+    
+    // Calculate how many weeks between reference week and current week
+    const weeksDiff = Math.floor((currentWeek.getTime() - referenceSunday.getTime()) / (7 * 24 * 60 * 60 * 1000));
+    
+    // Calculate the current rotation index based on the reference index plus weeks passed
+    // Use modulo to wrap around the schedule array
+    let rotationIndex = (referenceRotationIndex + weeksDiff) % fullSchedule.length;
+    // Handle negative indices (if today is before reference date)
+    if (rotationIndex < 0) rotationIndex += fullSchedule.length;
+    
+    // Go back to the beginning of the year 2025 to populate past dates too
+    const startDate = new Date(2025, 0, 5); // Jan 5, 2025 (first Sunday of 2025)
+    currentWeek = startOfWeek(startDate);
+    
+    // Recalculate rotation index for this start date
+    const weeksFromReferenceToStart = Math.floor((currentWeek.getTime() - referenceSunday.getTime()) / (7 * 24 * 60 * 60 * 1000));
+    rotationIndex = (referenceRotationIndex + weeksFromReferenceToStart) % fullSchedule.length;
+    if (rotationIndex < 0) rotationIndex += fullSchedule.length;
     
     while (currentWeek <= endDate) {
       const sunday = new Date(currentWeek);
@@ -165,7 +190,7 @@ export default function App() {
       
       // Move to next week and next rotation
       currentWeek = addWeeks(currentWeek, 1);
-      rotationIndex++;
+      rotationIndex = (rotationIndex + 1) % fullSchedule.length;
     }
     
     // Sort dates chronologically
