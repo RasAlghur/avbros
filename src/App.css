@@ -543,6 +543,330 @@ button {
   font-size: 0.9rem;
 }
 
+/* ... existing CSS ... */
+
+/* Special Events Page Mobile Fixes */
+.events-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.events-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.events-form,
+.events-list {
+  flex: 1;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.events-form h2,
+.events-list h2 {
+  margin-top: 0;
+  color: #2c3e50;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.event-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  transition: background 0.3s;
+  flex-wrap: wrap;
+}
+
+.event-item:hover {
+  background-color: #f9f9f9;
+}
+
+.event-item>div {
+  flex-grow: 1;
+  min-width: 70%;
+}
+
+.delete-button {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 8px;
+}
+
+.delete-button:hover {
+  background: #c0392b;
+}
+
+.back-button {
+  display: block;
+  margin: 30px auto 0;
+  padding: 10px 20px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.events-button {
+  background: #9b59b6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* Form enhancements */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form-group select,
+.form-group input[type="date"],
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.submit-button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .app-container {
+    padding: var(--spacing-sm);
+  }
+
+  .content-container {
+    padding: 0;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+  }
+
+  .day-nav {
+    order: -1;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .week-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .teams-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-section {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .day-button,
+  .today-button {
+    flex: 1;
+    text-align: center;
+    padding: 12px 8px;
+    font-size: 0.8rem;
+    min-width: 30%;
+  }
+
+  /* Events page mobile adjustments */
+  .events-page {
+    padding: 10px;
+  }
+
+  .events-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .events-form,
+  .events-list {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .events-form h2,
+  .events-list h2 {
+    font-size: 1.2rem;
+    padding-bottom: 8px;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group select,
+  .form-group input[type="date"],
+  .form-group input[type="text"] {
+    padding: 10px 8px;
+    font-size: 0.9rem;
+  }
+
+  .event-item {
+    padding: 10px 8px;
+    font-size: 0.9rem;
+  }
+
+  .event-item>div {
+    min-width: 60%;
+  }
+
+  .back-button {
+    margin-top: 20px;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+
+  .nav-buttons {
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .events-button {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  .worker-legend {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .day-nav {
+    flex-wrap: wrap;
+  }
+
+  .schedule-card,
+  .legend-card {
+    padding: 15px;
+  }
+
+  .team-member {
+    padding: 10px 8px;
+  }
+
+  .worker-name {
+    font-size: 0.9rem;
+  }
+
+  /* Events page small screen adjustments */
+  .events-form,
+  .events-list {
+    padding: 12px;
+  }
+
+  .event-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .event-item>div {
+    width: 100%;
+  }
+
+  .delete-button {
+    align-self: flex-end;
+    margin-top: 8px;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+  }
+
+  .form-group select,
+  .form-group input[type="date"],
+  .form-group input[type="text"] {
+    padding: 9px;
+    font-size: 0.85rem;
+  }
+
+  .submit-button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .events-page h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Add scroll to events list on mobile */
+.events-list {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .events-list {
+    max-height: 40vh;
+  }
+}
+
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
   .app-container {

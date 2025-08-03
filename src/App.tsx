@@ -306,8 +306,6 @@ export default function App() {
 
     return (
       <div className="events-page">
-        <h1 className="app-title">Special Event Registration</h1>
-
         <div className="events-container">
           <div className="events-form">
             <h2>Register Unavailability</h2>
@@ -496,8 +494,8 @@ export default function App() {
         <div className="header-container">
           <h1 className="app-title">
             {currentPage === "schedule"
-              ? "Worker Rotation Schedule"
-              : "Special Event Registration"}
+              ? "Schedule"
+              : "Special Event"}
           </h1>
           <div className="nav-buttons">
             {currentPage === "schedule" && (
