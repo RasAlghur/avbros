@@ -128,17 +128,19 @@ export default function App() {
     return addDays(date, weeks * 7);
   };
 
-  // Define workers with full names
+// Define workers with full names
   const workers = [
     { id: "A", name: "Adenle Jeptha" },
     { id: "B", name: "Adenle Iyewunmi" },
-    { id: "C", name: "Adegbola Olamilekan" },
-    { id: "D", name: "Bakare Toyosi" },
-    { id: "E", name: "Dauda Hammed" },
-    { id: "F", name: "Fatope Daniel" },
-    { id: "G", name: "Oloyede Dare" },
+    { id: "C", name: "Aderogba Pelumi" },
+    { id: "D", name: "Aderogba Taiwo" },
+    // { id: "C", name: "Adegbola Olamilekan" },
+    { id: "E", name: "Bakare Toyosi" },
+    { id: "F", name: "Dauda Hammed" },
+    // { id: "F", name: "Fatope Daniel" },
+    { id: "G", name: "Oyenekan Timileyin" },
   ];
-
+  
   // Helper function to convert IDs to full worker objects
   const getWorkersByIds = (idArray: any[]) => {
     return idArray.map(id => workers.find(worker => worker.id === id));
