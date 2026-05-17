@@ -174,7 +174,7 @@ export default function App() {
 
   // Build schedule for Sundays and Mondays until Jan 4, 2026
   const generateWorkDays = () => {
-    const endDate = new Date(2026, 0, 4);
+    const endDate = new Date(2027, 0, 4);
     const workDays = [];
 
     // Calculate how many weeks have passed since the reference date
